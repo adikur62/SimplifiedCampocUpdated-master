@@ -23,6 +23,7 @@ import java.util.Map;
 
 import helper.Config;
 import helper.Controller;
+import helper.Model;
 import helper.SQLiteHandler;
 import helper.SessionManager;
 
@@ -55,6 +56,16 @@ public class EditProfile extends AppCompatActivity {
         // SQLite database handler
         db = new SQLiteHandler(getApplicationContext());
 
+        // Fetching user details from sqlite
+        HashMap<String, String> user = db.getUserDetails();
+
+        String name = user.get("name");
+        String email = user.get("email");
+
+        // Displaying the user details on the screen
+        editName.setText(name);
+        editEmail.setText(email);
+
         // Register button click event
         btnEditProfile.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -62,8 +73,13 @@ public class EditProfile extends AppCompatActivity {
                 String email = editEmail.getText().toString().trim();
                 String password = editPassword.getText().toString().trim();
 
+                // Fetching user details from sqlite
+                HashMap<String, String> user = db.getUserDetails();
+
+                String uid = user.get("uid");
+
                 if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
-                    editUser(name, email, password);
+                    editUser(uid, name, email, password);
                 } else {
                     Toast.makeText(getApplicationContext(),
                             "Silahkan masukkan data dengan lengkap", Toast.LENGTH_LONG)
@@ -75,7 +91,7 @@ public class EditProfile extends AppCompatActivity {
     }
 
     //request json saat melakukan registrasi user
-    private void editUser(final String name, final String email, final String password) {
+    private void editUser(final String uid, final String name, final String email, final String password) {
 
         String tag_string_req = "req_edit";
 
@@ -99,20 +115,20 @@ public class EditProfile extends AppCompatActivity {
                         String uid = jObj.getString("uid");
 
                         JSONObject user = jObj.getJSONObject("user");
+//                        String uid = user.getString("uid");
                         String name = user.getString("name");
                         String email = user.getString("email");
-                        String created_at = user
-                                .getString("created_at");
+                        String updated_at = user.getString("updated_at");
 
                         // menambah row di tabel users
-                        db.addUser(name, email, uid, created_at);
+                        db.updateUser(uid, name, email, updated_at);
 
-                        Toast.makeText(getApplicationContext(), "User berhasil diregistrasi. Cobalah CAMPOC sekarang!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "User berhasil diupdate!", Toast.LENGTH_LONG).show();
 
                         // menjalankan Menu Login
                         Intent intent = new Intent(
                                 EditProfile.this,
-                                LoginScreen.class);
+                                MenuUtama.class);
                         startActivity(intent);
                         finish();
                     } else {
@@ -143,6 +159,7 @@ public class EditProfile extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 // memposting parameter register ke url
                 Map<String, String> params = new HashMap<String, String>();
+                params.put("uid", uid);
                 params.put("name", name);
                 params.put("email", email);
                 params.put("password", password);
