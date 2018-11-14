@@ -49,6 +49,7 @@
         <activity
             android:name=".MenuPeta"
             android:label="@string/title_activity_menu_peta" />
+        <activity android:name=".MenuDetailPost"></activity>
     </application>
 
 </manifest>
