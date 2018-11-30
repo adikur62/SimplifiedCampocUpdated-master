@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
@@ -13,27 +12,38 @@
     
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
         <EditText
             android:id="@+id/CariLokasi"
-            android:layout_width="314dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:ems="10"
-            android:textColor="@color/white"
-            android:textColorHint="@android:color/white"
-            android:hint="Cari lokasi disini..." />
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textSize="14sp"
+            android:padding="10dp"
+            android:background="@drawable/dw_search"
+            android:hint="Cari lokasi disini." />
 
-        <ImageButton
-            android:id="@+id/search_address"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="300dp"
             android:layout_height="50dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:onClick="onClick"
-            android:src="@mipmap/ic_launcher_round" />
+            android:background="@drawable/btn_search">
+
+            <ImageView
+                android:id="@+id/search_address"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="2dp"
+                android:padding="5dp"
+                android:background="@drawable/ic_search"
+                android:onClick="onClick" />
+
+        </LinearLayout>
         
     </RelativeLayout>
 
@@ -42,44 +52,98 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight=".60"
-        android:layout_marginTop="45dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-    
-    <RelativeLayout
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="45dp"
+        android:layout_weight=".60" />
+
+    <LinearLayout
         android:id="@+id/secondRelativeLayout"
+        android:orientation="horizontal"
+        android:layout_marginTop="420dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="300dp"
+        android:background="@drawable/corners_custom">
 
-        <ImageButton
-            android:id="@+id/rumahsakit"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="100dp"
-            android:onClick="onClick"
-            android:src="@drawable/hospital" />
+            android:padding="5dp"
+            android:text="Nearbys :"
+            android:textSize="12sp"/>
 
-        <ImageButton
-            android:id="@+id/sekolah"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@+id/rumahsakit"
-            android:onClick="onClick"
-            android:src="@mipmap/ic_launcher" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/rumahsakit"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:onClick="onClick"
+                    android:background="@drawable/ic_hospital" />
 
-        <ImageButton
-            android:id="@+id/restoran"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@+id/sekolah"
-            android:onClick="onClick"
-            android:src="@mipmap/ic_launcher" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rumah Sakit"
+                    android:textSize="10sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
 
-    </RelativeLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/sekolah"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:onClick="onClick"
+                    android:layout_gravity="center"
+                    android:padding="30dp"
+                    android:background="@drawable/ic_school"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sekolah"
+                    android:textSize="10sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/restoran"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:onClick="onClick"
+                    android:src="@drawable/ic_coffee_shop" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Restoran"
+                    android:textSize="10sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

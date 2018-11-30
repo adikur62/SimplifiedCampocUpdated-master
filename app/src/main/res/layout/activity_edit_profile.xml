@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/bg_register"
+    android:background="#ffff"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="10dp" >
-
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -23,16 +22,17 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
             android:textSize="20dp"
+            android:textStyle="bold"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:text="EDIT PROFILE ANDA" />
 
     <EditText
         android:id="@+id/editName"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:background="@color/input_register_bg"
+        android:background="@drawable/et_login"
         android:hint="@string/hint_name"
         android:padding="10dp"
         android:singleLine="true"
@@ -45,7 +45,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:background="@color/input_register_bg"
+        android:background="@drawable/et_login"
         android:hint="@string/hint_email"
         android:inputType="textEmailAddress"
         android:padding="10dp"
@@ -55,10 +55,10 @@
 
     <EditText
         android:id="@+id/editPassword"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:background="@color/input_register_bg"
+        android:background="@drawable/et_login"
         android:hint="@string/hint_password"
         android:inputType="textPassword"
         android:padding="10dp"
@@ -70,12 +70,20 @@
 
     <Button
         android:id="@+id/btnEditProfile"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dip"
-        android:background="#FF6347"
+        android:background="@drawable/btn_main"
         android:text="SAVE CHANGES"
+        android:textSize="14sp"
+        android:textStyle="bold"
         android:textColor="@color/white" />
     </LinearLayout>
+
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_1tet"/>
 
 </LinearLayout>

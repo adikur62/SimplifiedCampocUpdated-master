@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#008D8F</color>
+    <color name="colorPrimaryDark">#057C7C</color>
+    <color name="tulis">#CFD5D3</color>
+    <color name="tulis2">#C1C7C5</color>
     <color name="colorAccent">#FF4081</color>
     <color name="bg_login">#FF6347</color>
     <color name="bg_register">#2e3237</color>
