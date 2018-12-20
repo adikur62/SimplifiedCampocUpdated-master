@@ -17,7 +17,7 @@
         android:orientation="vertical">
         <TextView
             android:id="@+id/DetailtextviewLokasi"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:textSize="22sp"
             android:textStyle="bold"
             android:layout_width="match_parent"
@@ -33,7 +33,15 @@
             android:adjustViewBounds="true" />
         <TextView
             android:id="@+id/DetailtextviewDeskripsi"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HALO"/>
+        <TextView
+            android:id="@+id/DetailtextviewDetail"
+            android:textColor="@color/colorPrimary"
             android:textAlignment="center"
             android:textSize="20sp"
             android:layout_width="match_parent"

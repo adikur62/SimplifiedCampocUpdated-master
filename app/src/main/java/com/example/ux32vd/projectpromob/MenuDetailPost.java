@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class MenuDetailPost extends AppCompatActivity {
 
-    TextView mDetailDeskripsi, mDetailLokasi;
+    TextView mDetailDeskripsi, mDetailLokasi, mDetailDetail;
     ImageView mDetailFoto;
 
     @Override
@@ -29,17 +29,20 @@ public class MenuDetailPost extends AppCompatActivity {
         //penjelasan views
         mDetailDeskripsi = findViewById(R.id.DetailtextviewDeskripsi);
         mDetailLokasi = findViewById(R.id.DetailtextviewLokasi);
+        mDetailDetail = findViewById(R.id.DetailtextviewDetail);
         mDetailFoto = findViewById(R.id.DetailimageviewFoto);
 
         //ambil data dari intent
         byte[] bytes = getIntent().getByteArrayExtra("Foto");
         String Deskripsi = getIntent().getStringExtra("Deskripsi");
         String Lokasi = getIntent().getStringExtra("Lokasi");
+        String Detail = getIntent().getStringExtra("Detail");
         Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
 
         //set data ke views
         mDetailDeskripsi.setText(Deskripsi);
         mDetailLokasi.setText(Lokasi);
+        mDetailDetail.setText(Detail);
         mDetailFoto.setImageBitmap(bmp);
 
     }

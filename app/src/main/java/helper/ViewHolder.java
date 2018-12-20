@@ -36,14 +36,16 @@ public class ViewHolder extends RecyclerView.ViewHolder{
         });
     }
 
-    public void setDetails (Context ctx, String Lokasi, String Foto, String Deskripsi){
+    public void setDetails (Context ctx, String Lokasi, String Foto, String Deskripsi, String Detail){
         TextView mLokasi = mView.findViewById(R.id.textviewLokasi);
         ImageView mFoto = mView.findViewById(R.id.imageviewFoto);
         TextView mDeskripsi = mView.findViewById(R.id.textviewDeskripsi);
+        TextView mDetail = mView.findViewById(R.id.textviewDetail);
 
         mLokasi.setText(Lokasi);
         Picasso.get().load(Foto).into(mFoto);
         mDeskripsi.setText(Deskripsi);
+        mDetail.setText(Detail);
     }
 
     private ViewHolder.ClickListener mClickListener;

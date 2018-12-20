@@ -32,11 +32,13 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //library tambahan
     implementation 'com.mcxiaoke.volley:library-aar:1.0.0'
-    implementation 'com.android.support:cardview-v7:27.1.0'
+    implementation 'com.android.support:cardview-v7:27.1.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.google.android.gms:play-services:11.8.0'
     implementation 'com.google.android.gms:play-services-location:11.8.0'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.google.firebase:firebase-core:11.8.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

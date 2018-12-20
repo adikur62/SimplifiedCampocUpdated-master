@@ -69,7 +69,7 @@ public class MenuLokasi extends AppCompatActivity {
                 ) {
                     @Override
                     protected void populateViewHolder(ViewHolder viewHolder, Model model, int position) {
-                        viewHolder.setDetails(getApplicationContext(), model.getLokasi(), model.getFoto(), model.getDeskripsi());
+                        viewHolder.setDetails(getApplicationContext(), model.getLokasi(), model.getFoto(), model.getDeskripsi(), model.getDet());
 
                     }
 
@@ -83,12 +83,14 @@ public class MenuLokasi extends AppCompatActivity {
                             @Override
                             public void onItemClick(View view, int position) {
                                 //Views
-                                TextView mDetailDeskripsi = view.findViewById(R.id.DetailtextviewDeskripsi);
-                                TextView mDetailLokasi = view.findViewById(R.id.DetailtextviewLokasi);
-                                ImageView mDetailFoto = view.findViewById(R.id.DetailimageviewFoto);
+                                TextView mDetailDeskripsi = view.findViewById(R.id.textviewDeskripsi);
+                                TextView mDetailLokasi = view.findViewById(R.id.textviewLokasi);
+                                TextView mDetailDetail= view.findViewById(R.id.textviewDetail);
+                                ImageView mDetailFoto = view.findViewById(R.id.imageviewFoto);
                                 //ambil data dari views
                                 String mDeskripsi = mDetailDeskripsi.getText().toString();
                                 String mLokasi = mDetailLokasi.getText().toString();
+                                String mDetail= mDetailDetail.getText().toString();
                                 Drawable mDrawable = mDetailFoto.getDrawable();
                                 Bitmap mBitmap = ((BitmapDrawable)mDrawable).getBitmap();
 
@@ -100,6 +102,7 @@ public class MenuLokasi extends AppCompatActivity {
                                 intent.putExtra("Foto", bytes); //ubah bitmap menjadi array byte
                                 intent.putExtra("Deskripsi", mDeskripsi);
                                 intent.putExtra("Lokasi", mLokasi);
+                                intent.putExtra("Detail", mDetail);
                                 startActivity(intent); //jalankan activity detail
 
 
@@ -133,9 +136,54 @@ public class MenuLokasi extends AppCompatActivity {
                     @Override
                     protected void populateViewHolder(ViewHolder viewHolder, Model model, int position) {
 
-                        viewHolder.setDetails(getApplicationContext(), model.getLokasi(), model.getFoto(), model.getDeskripsi());
+                        viewHolder.setDetails(getApplicationContext(), model.getLokasi(), model.getFoto(), model.getDeskripsi(), model.getDet());
 
                     }
+
+                    @Override
+                    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+                        ViewHolder viewHolder = super.onCreateViewHolder(parent, viewType);
+
+                        viewHolder.setOnClickListener(new ViewHolder.ClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                //Views
+                                TextView mDetailDeskripsi = view.findViewById(R.id.textviewDeskripsi);
+                                TextView mDetailLokasi = view.findViewById(R.id.textviewLokasi);
+                                TextView mDetailDetail= view.findViewById(R.id.textviewDetail);
+                                ImageView mDetailFoto = view.findViewById(R.id.imageviewFoto);
+                                //ambil data dari views
+                                String mDeskripsi = mDetailDeskripsi.getText().toString();
+                                String mLokasi = mDetailLokasi.getText().toString();
+                                String mDetail= mDetailDetail.getText().toString();
+                                Drawable mDrawable = mDetailFoto.getDrawable();
+                                Bitmap mBitmap = ((BitmapDrawable)mDrawable).getBitmap();
+
+                                //lempar data ke activity baru
+                                Intent intent = new Intent(view.getContext(), MenuDetailPost.class);
+                                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                                mBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                                byte[] bytes = stream.toByteArray();
+                                intent.putExtra("Foto", bytes); //ubah bitmap menjadi array byte
+                                intent.putExtra("Deskripsi", mDeskripsi);
+                                intent.putExtra("Lokasi", mLokasi);
+                                intent.putExtra("Detail", mDetail);
+                                startActivity(intent); //jalankan activity detail
+
+
+                            }
+
+                            @Override
+                            public void onItemLongClick(View view, int position) {
+                                //TODO implementasi sendiri untuk long click
+
+                            }
+                        });
+
+                        return viewHolder;
+                    }
+
                 };
 
         //set adapter ke bentuk recycler view
@@ -193,5 +241,12 @@ public class MenuLokasi extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    //kembali ke activity sebelumnya
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
