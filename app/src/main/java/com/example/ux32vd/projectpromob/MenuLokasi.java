@@ -37,8 +37,6 @@ public class MenuLokasi extends AppCompatActivity {
     FirebaseDatabase mFirebaseDatabase;
     DatabaseReference mRef;
 
-    private Button btnPeta;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,7 +94,7 @@ public class MenuLokasi extends AppCompatActivity {
                                 Bitmap mBitmap = ((BitmapDrawable)mDrawable).getBitmap();
 
                                 //lempar data ke activity baru
-                                Intent intent = new Intent(view.getContext(), MenuDetailPost.class);
+                                Intent intent = new Intent(view.getContext(), MenuDetailLokasi.class);
                                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                                 mBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                                 byte[] bytes = stream.toByteArray();
@@ -193,17 +191,7 @@ public class MenuLokasi extends AppCompatActivity {
 
 
 
-        //intent ke menu peta
-        btnPeta = (Button) findViewById(R.id.btnPeta);
-        btnPeta.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(),
-                        MenuPeta.class);
-                startActivity(i);
-                finish();
-            }
-        });
     }
 
     @Override
@@ -251,4 +239,5 @@ public class MenuLokasi extends AppCompatActivity {
         onBackPressed();
         return true;
     }
+
 }

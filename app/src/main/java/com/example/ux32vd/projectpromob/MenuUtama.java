@@ -17,6 +17,7 @@ public class MenuUtama extends AppCompatActivity {
     private TextView txtName;
     private TextView txtEmail;
     private Button btnLogout, btnEditProfile, btnMulai;
+    private Button btnPeta;
 
     private SQLiteHandler db;
     private SessionManager session;
@@ -67,7 +68,7 @@ public class MenuUtama extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent (getApplicationContext(),EditProfile.class);
                 startActivity(intent);
-                finish();
+//                finish();
 
             }
         });
@@ -77,8 +78,20 @@ public class MenuUtama extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent (getApplicationContext(),MenuLokasi.class);
                 startActivity(intent);
-                finish();
+//                finish();
 
+            }
+        });
+
+        //intent ke menu peta
+        btnPeta = (Button) findViewById(R.id.btnPeta);
+        btnPeta.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),
+                        MenuPeta.class);
+                startActivity(i);
+//                finish();
             }
         });
     }

@@ -92,7 +92,7 @@ public class RegisterScreen extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(),
                         LoginScreen.class);
                 startActivity(i);
-                finish();
+//                finish();
             }
         });
     }

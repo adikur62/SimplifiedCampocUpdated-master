@@ -104,6 +104,22 @@
             android:textAllCaps="false"
             android:textColor="#ffff"
             android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/btnPeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:layout_marginBottom="20dip"
+            android:padding="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/btn_lokasi"
+            android:textStyle="bold"
+            android:text="CEK LOKASI SAYA!"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
     </LinearLayout>
 
 </LinearLayout>
