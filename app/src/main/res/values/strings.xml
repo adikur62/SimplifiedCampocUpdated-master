@@ -27,6 +27,9 @@
         "interact, and exist in space and in relation to each other. Realistic lighting shows "
         "seams, divides space, and indicates moving parts.\n\n"
     </string>
+    <string name="deskripsi">
+        "Ini Deskripsi"
+    </string>
 
 
 </resources>

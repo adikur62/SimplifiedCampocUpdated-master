@@ -6,6 +6,14 @@ public class Model {
 
     public Model(){}
 
+    public String getDetail() {
+        return Detail;
+    }
+
+    public void setDetail(String detail) {
+        Detail = detail;
+    }
+
     public String getDeskripsi() {
         return Deskripsi;
     }
@@ -28,14 +36,6 @@ public class Model {
 
     public void setLokasi(String Lokasi) {
         this.Lokasi = Lokasi;
-    }
-
-    public String getDet() {
-        return Detail;
-    }
-
-    public void setDet(String Detail) {
-        this.Detail = Detail;
     }
 
 }

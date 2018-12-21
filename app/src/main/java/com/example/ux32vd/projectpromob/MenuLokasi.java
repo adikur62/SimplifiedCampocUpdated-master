@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -69,7 +70,7 @@ public class MenuLokasi extends AppCompatActivity {
                 ) {
                     @Override
                     protected void populateViewHolder(ViewHolder viewHolder, Model model, int position) {
-                        viewHolder.setDetails(getApplicationContext(), model.getLokasi(), model.getFoto(), model.getDeskripsi(), model.getDet());
+                        viewHolder.setDetails(getApplicationContext(), model.getLokasi(), model.getFoto(), model.getDeskripsi(), model.getDetail());
 
                     }
 
@@ -135,8 +136,9 @@ public class MenuLokasi extends AppCompatActivity {
                 ){
                     @Override
                     protected void populateViewHolder(ViewHolder viewHolder, Model model, int position) {
-
-                        viewHolder.setDetails(getApplicationContext(), model.getLokasi(), model.getFoto(), model.getDeskripsi(), model.getDet());
+                        Log.e("desk", "tes:"+model.getDeskripsi());
+                        Log.e("detail", "tes1:"+model.getDetail());
+                        viewHolder.setDetails(getApplicationContext(), model.getLokasi(), model.getFoto(), model.getDeskripsi(), model.getDetail());
 
                     }
 
@@ -161,7 +163,7 @@ public class MenuLokasi extends AppCompatActivity {
                                 Bitmap mBitmap = ((BitmapDrawable)mDrawable).getBitmap();
 
                                 //lempar data ke activity baru
-                                Intent intent = new Intent(view.getContext(), MenuDetailPost.class);
+                                Intent intent = new Intent(view.getContext(), MenuDetailLokasi.class);
                                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                                 mBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                                 byte[] bytes = stream.toByteArray();

@@ -10,23 +10,45 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginLeft="328dp"
-        android:layout_marginRight="5dp"
+        android:layout_height="70dp"
+        android:background="@color/colorPrimary"
+        android:elevation="15dp"
         android:orientation="horizontal">
-        <Button
-            android:id="@+id/btnEditProfile"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/ic_edit"/>
 
-        <Button
-            android:layout_marginLeft="10dp"
-            android:id="@+id/btnLogout"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/ic_power_button"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginRight="10dp"
+                android:textColor="#fff"
+                android:text="Campoc"/>
+            <Button
+                android:id="@+id/btnEditProfile"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="200dp"
+                android:backgroundTint="#ffff"
+                android:background="@drawable/ic_edit"/>
+
+            <Button
+                android:layout_marginLeft="10dp"
+                android:id="@+id/btnLogout"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:backgroundTint="#ffff"
+                android:background="@drawable/ic_power_button"/>
+
+        </LinearLayout>
 
     </LinearLayout>
     <LinearLayout

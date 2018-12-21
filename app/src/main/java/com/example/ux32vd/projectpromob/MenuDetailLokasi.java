@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso;
 
 public class MenuDetailLokasi extends AppCompatActivity {
 
-    TextView mDetailDeskripsi, mDetailLokasi, mDetail;
+    TextView mDetailDeskripsi, mDetailLokasi, mDetailDetail;
     ImageView mDetailFoto;
 
     @Override
@@ -30,32 +30,34 @@ public class MenuDetailLokasi extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
 
         //penjelasan views
-        mDetailDeskripsi = findViewById(R.id.txtDetail);
+        mDetailDeskripsi = findViewById(R.id.txtDeskripsi);
+//        mDetailLokasi = findViewById(R.id.DetailtextviewLokasi);
+        mDetailDetail = findViewById(R.id.txtDetail);
         mDetailFoto = findViewById(R.id.imgDet);
 
-        //GET INTENT
-        Intent i=this.getIntent();
+        //ambil data dari intent
+        byte[] bytes = getIntent().getByteArrayExtra("Foto");
+        String Deskripsi = getIntent().getStringExtra("Deskripsi");
+        String Lokasi = getIntent().getStringExtra("Lokasi");
+        getSupportActionBar().setTitle(Lokasi);
 
-        //RECEIVE DATA
-        String lokasi=i.getExtras().getString("LOKASI_KEY");
-        getSupportActionBar().setTitle(lokasi);
-        String deskripsi=i.getExtras().getString("DESKRIPSI_KEY");
-//        String foto=i.getExtras().getString("FOTO_KEY");
+        String Detail = getIntent().getStringExtra("Detail");
+        Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
 
-        //BIND DATA
-        mDetailDeskripsi.setText(deskripsi);
-//        Picasso.get().load(foto).into(mDetailFoto);
 
-//        //ambil data dari intent
-//        byte[] bytes = getIntent().getByteArrayExtra("Foto");
-//        String Detail = getIntent().getStringExtra("Detail");
-//        String Lokasi = getIntent().getStringExtra("Lokasi");
-//        getSupportActionBar().setTitle(Lokasi);
-//        Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-//
-//        //set data ke views
-//        mDetail.setText(Detail);
-//        mDetailFoto.setImageBitmap(bmp);
+        //set data ke views
+        mDetailDeskripsi.setText(Deskripsi);
+//        mDetailLokasi.setText(Lokasi);
+        mDetailDetail.setText(Detail);
+        mDetailFoto.setImageBitmap(bmp);
 
+    }
+
+
+    //kembali ke activity sebelumnya
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

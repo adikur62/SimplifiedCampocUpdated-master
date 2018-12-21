@@ -31,7 +31,9 @@
         </activity>
         <activity android:name=".LoginScreen" />
         <activity android:name=".RegisterScreen" />
-        <activity android:name=".MenuUtama" />
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".MenuUtama" />
         <activity android:name=".EditProfile" />
         <activity android:name=".MenuLokasi" />
         <!--
@@ -46,10 +48,14 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <!--<activity-->
+            <!--android:name=".MenuPeta"-->
+            <!--android:label="@string/title_activity_menu_peta" />-->
+        <!--<activity android:name=".MenuDetailPost"></activity>-->
         <activity
             android:name=".MenuPeta"
             android:label="@string/title_activity_menu_peta" />
-        <activity android:name=".MenuDetailPost"></activity>
+        <activity android:name=".MenuDetailLokasi"></activity>
     </application>
 
 </manifest>
